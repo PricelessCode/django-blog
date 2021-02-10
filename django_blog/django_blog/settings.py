@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig', # You need to add created apps for django to properly detect templates and databases later on.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
