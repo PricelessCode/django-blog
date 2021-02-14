@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'blog.apps.BlogConfig', # You need to add created apps for django to properly detect templates and databases later on.
     'users.apps.UsersConfig',
+    'crispy_forms', # Added after pip install django-crispy-forms
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,3 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Choose which bootstrap version to use for crispy form library 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
