@@ -129,3 +129,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # For the login view, if the user signs in, it will redirect to the homepage
 LOGIN_REDIRECT_URL = 'blog-home'
+
+# For login_required decorator, this sets which URL to be directed
+LOGIN_URL = 'login'
