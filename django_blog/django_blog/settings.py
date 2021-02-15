@@ -125,3 +125,7 @@ STATIC_URL = '/static/'
 
 # Choose which bootstrap version to use for crispy form library 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# For the login view, if the user signs in, it will redirect to the homepage
+LOGIN_REDIRECT_URL = 'blog-home'
