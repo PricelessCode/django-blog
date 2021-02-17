@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -119,13 +120,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
+# Uploaded file directory where it will be saved (Uploading image etc)
+# You need to add this to urls.py according to the Django document
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# URL for browser how to access that Media above
+MEDIA_URL = '/media/'
 
 # Choose which bootstrap version to use for crispy form library 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 
 # For the login view, if the user signs in, it will redirect to the homepage
 LOGIN_REDIRECT_URL = 'blog-home'
