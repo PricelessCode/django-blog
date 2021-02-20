@@ -10,7 +10,7 @@ def create_profile(sender, instance, created, **kwargs): # This function itself 
     if created:
         Profile.objects.create(user=instance)
 
-# This will be trigered everytime user is saved
+# This will be triggered everytime user is saved
 @receiver(post_save, sender=User) 
 def save_profile(sender, instance, **kwargs):
     instance.profile.save()
