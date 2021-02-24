@@ -11,8 +11,8 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     # Overriding profile.save() method because image needed to be preprocessed
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
         
