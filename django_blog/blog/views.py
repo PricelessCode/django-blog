@@ -16,6 +16,15 @@ class PostListView(ListView):
     template_name = 'blog/home.html' # if you don't add this, the class will look for <app>/<model>_<viewtype>.html which I don't have
     context_object_name = 'posts' # If you don't set this, you have to use name 'object' instead of 'posts' in the html template
     ordering = ['-date_posted'] # -date_posted mean reversed ordering of date_posted so that newest post is on the bottom
+    paginate_by = 5 # pagination functionality
+
+# The List View when you click the author
+class UserPostListView(ListView):
+    model = Post # Which model to query
+    template_name = 'blog/user_posts.html' # if you don't add this, the class will look for <app>/<model>_<viewtype>.html which I don't have
+    context_object_name = 'posts' # If you don't set this, you have to use name 'object' instead of 'posts' in the html template
+    ordering = ['-date_posted'] # -date_posted mean reversed ordering of date_posted so that newest post is on the bottom
+    paginate_by = 5 # pagination functionality
 
 # Class based View
 class PostDetailView(DetailView):
