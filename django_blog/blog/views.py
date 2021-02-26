@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post # . means from this folder
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 
 # Function based view
 # def home(request):
@@ -23,8 +24,11 @@ class UserPostListView(ListView):
     model = Post # Which model to query
     template_name = 'blog/user_posts.html' # if you don't add this, the class will look for <app>/<model>_<viewtype>.html which I don't have
     context_object_name = 'posts' # If you don't set this, you have to use name 'object' instead of 'posts' in the html template
-    ordering = ['-date_posted'] # -date_posted mean reversed ordering of date_posted so that newest post is on the bottom
     paginate_by = 5 # pagination functionality
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username')) # Returns 404 if it doesn't exist
+        return Post.objects.filter(author=user).order_by('-date_posted')
 
 # Class based View
 class PostDetailView(DetailView):
