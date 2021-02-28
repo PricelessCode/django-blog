@@ -137,3 +137,11 @@ LOGIN_REDIRECT_URL = 'blog-home'
 
 # For login_required decorator, this sets which URL to be directed
 LOGIN_URL = 'login'
+
+# Variables for sending email for resetting password
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER') # Set environment variable in your local device.
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS') # For the password, you have to use Google App Sign Password
