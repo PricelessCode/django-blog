@@ -36,4 +36,3 @@ urlpatterns = [
 # If debug variable is true in the setting
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
